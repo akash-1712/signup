@@ -1,0 +1,23 @@
+.right {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  @media only screen and (max-width: 60.8em) {
+    padding: 0;
+  }
+}
+.btn-try {
+  color: $white;
+  background-color: $Blue;
+  border: 1px solid $Blue;
+}
+.btn-form {
+  color: $white;
+  background-color: $Green;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid $Green;
+  margin-bottom: 1rem;
+}

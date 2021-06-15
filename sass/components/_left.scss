@@ -1,0 +1,23 @@
+.left {
+  flex: 1;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  justify-content: center;
+
+  &-heading-primary {
+    color: $white;
+  }
+
+  &-heading-tritary {
+    color: rgba($white, 0.7);
+  }
+  @media only screen and (max-width: 60.8em) {
+    padding: 0;
+  }
+  @media only screen and (max-width: 50em) {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
