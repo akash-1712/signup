@@ -20,6 +20,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- JavaScript -->
+    <script defer src="./js/index.js"></script>
     <!-- css style -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -53,36 +55,55 @@
         <button class="btn btn-try">
           <strong>Try it free 7 days </strong> then $20/mo. thereafter
         </button>
-        <form class="form">
-          <input
-            required
-            placeholder="First Name"
-            type="text"
-            class="form-input"
-          />
-          <input
-            required
-            placeholder="Last Name"
-            type="text"
-            class="form-input"
-          />
-          <input
-            required
-            placeholder="Email Address"
-            type="email"
-            class="form-input"
-            aria-label="Email Address"
-          />
-          <input
-            required
-            placeholder="Password"
-            type="password"
-            class="form-input"
-          />
-          <div class="gender-detail">
-            <input required type="radio" name="gender" id="dot-1" />
-            <input required type="radio" name="gender" id="dot-2" />
-            <input required type="radio" name="gender" id="dot-3" />
+        <form class="form" novalidate>
+          <div class="first-name error">
+            <input
+              placeholder="First Name"
+              type="text"
+              class="form-input"
+              data-error="First Name"
+              required
+            />
+            <!-- <img
+              class="error-icon"
+              src="./images/icon-error.svg"
+              alt="icon-error"
+            /> -->
+            <!-- <p class="error-message">xx</p> -->
+          </div>
+          <div class="last-name error">
+            <input
+              placeholder="Last Name"
+              type="text"
+              class="form-input"
+              data-error="Last Name"
+              required
+            />
+          </div>
+          <div class="email error">
+            <input
+              placeholder="Email Address"
+              type="email"
+              class="form-input"
+              aria-label="Email Address"
+              data-error="Email Address is not valid or"
+              required
+            />
+          </div>
+          <div class="password error">
+            <input
+              placeholder="Password"
+              type="password"
+              class="form-input"
+              data-error="Password"
+              required
+            />
+          </div>
+
+          <!-- <div class="gender-detail">
+            <input type="radio" name="gender" id="dot-1" />
+            <input type="radio" name="gender" id="dot-2" />
+            <input type="radio" name="gender" id="dot-3" />
             <span class="gender-title">Gender</span>
             <div class="category">
               <label for="dot-1">
@@ -98,7 +119,7 @@
                 <span class="gender">Prefer not to say</span>
               </label>
             </div>
-          </div>
+          </div> -->
           <button class="btn btn-form" type="submit">
             Claim your free trial
           </button>
@@ -108,6 +129,13 @@
           </p>
         </form>
       </div>
+    </div>
+
+    <div class="popup hidden">
+      <h1 class="popup-heading-primary">
+        Thanks for filling form! <br />
+        Enjoy your 7days trial
+      </h1>
     </div>
 
     <!-- Learn to code by watching others See how experienced developers solve

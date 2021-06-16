@@ -1,0 +1,33 @@
+.hidden {
+  display: none;
+}
+
+.popup {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: $Red;
+  background-color: $Dark-Blue;
+  padding: 1.5rem 5rem;
+  //   transition: all 3s;
+  animation: greetMessage;
+  animation-duration: 3s;
+  transform: translateX(10rem);
+
+  //   &:hover {
+  //     transform: translateX(-20rem);
+  //   }
+}
+
+@keyframes greetMessage {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-20rem);
+    visibility: visible;
+  }
+}
