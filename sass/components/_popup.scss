@@ -31,3 +31,19 @@
     visibility: visible;
   }
 }
+
+.password-popup {
+  background-color: $white;
+  padding: 1rem 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 10px;
+  max-width: 24rem;
+
+  @media only screen and (max-width: 32em) {
+    padding: 1rem 1rem;
+  }
+}

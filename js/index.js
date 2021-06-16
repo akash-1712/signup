@@ -4,12 +4,26 @@ const error_icon = document.querySelector(".error-icon");
 const btn_form = document.querySelector(".btn-form");
 const error_message = document.querySelector(".error-message");
 const form_inputs = document.querySelectorAll(".form-input");
+const password_popup = document.querySelector(".password-popup");
 
-// const passwordCheck = function (pass) {
-//   var lowerCaseLetters = /[a-z]/g;
-
-// };
-
+const passwordCheck = function (pass) {
+  var lowerCaseLetters = /[a-z]/g;
+  var upperCaseLetters = /[A-Z]/g;
+  var numbers = /[0-9]/g;
+  if (
+    pass.match(lowerCaseLetters) &&
+    pass.match(upperCaseLetters) &&
+    pass.match(numbers) &&
+    pass.length >= 8 &&
+    pass.length <= 15
+  ) {
+    password_popup.classList.add("hidden");
+    return true;
+  } else {
+    password_popup.classList.remove("hidden");
+    return false;
+  }
+};
 const emailCheck = function (email) {
   const checker =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -48,7 +62,11 @@ const giveError = function (event) {
                   />
         <p class="error-message">${val.dataset.error} cannot be empty.</p>
         `;
-    if (val.value == "" && !val.classList.contains("check-email")) {
+    if (
+      val.value == "" &&
+      !val.classList.contains("check-email") &&
+      !val.classList.contains("check-pass")
+    ) {
       // val.insertAdjacentHTML("afterend", html);
       // val.style.border = "2px solid hsl(246, 25%, 77%)";
       addErrorMessage(val, html);
@@ -56,6 +74,10 @@ const giveError = function (event) {
       !emailCheck(val.value)
         ? addErrorMessage(val, html)
         : removeErrorMessage(val);
+    } else if (val.classList.contains("check-pass")) {
+      passwordCheck(val.value)
+        ? removeErrorMessage(val)
+        : addErrorMessage(val, html);
     } else {
       // val.style.border = "2px solid hsl(248, 32%, 49%)";
       // val.style.color = " rgba(#000000, 0.4)";
@@ -68,3 +90,6 @@ const giveError = function (event) {
 };
 
 form.addEventListener("submit", giveError);
+document.querySelector(".btn-ok").addEventListener("click", function () {
+  password_popup.classList.add("hidden");
+});

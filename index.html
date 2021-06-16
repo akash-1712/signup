@@ -20,6 +20,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
     <!-- JavaScript -->
     <script defer src="./js/index.js"></script>
     <!-- css style -->
@@ -94,10 +101,11 @@
             <input
               placeholder="Password"
               type="password"
-              class="form-input"
+              class="form-input check-pass"
               data-error="Password"
               required
             />
+            <i class="far fa-eye eye-icon"></i>
           </div>
 
           <!-- <div class="gender-detail">
@@ -136,6 +144,14 @@
         Thanks for filling form! <br />
         Enjoy your 7days trial
       </h1>
+    </div>
+
+    <div class="password-popup hidden">
+      <h3 class="popup-heading-secondary">
+        Password must 8-16 characters and contain both number and
+        letters/special characters.
+      </h3>
+      <div class="btn btn-ok">ok</div>
     </div>
 
     <!-- Learn to code by watching others See how experienced developers solve
