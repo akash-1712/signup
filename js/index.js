@@ -5,6 +5,8 @@ const btn_form = document.querySelector(".btn-form");
 const error_message = document.querySelector(".error-message");
 const form_inputs = document.querySelectorAll(".form-input");
 const password_popup = document.querySelector(".password-popup");
+const eye_icon = document.querySelector(".eye-icon");
+const password = document.querySelector(".check-pass");
 
 const passwordCheck = function (pass) {
   var lowerCaseLetters = /[a-z]/g;
@@ -18,9 +20,11 @@ const passwordCheck = function (pass) {
     pass.length <= 15
   ) {
     password_popup.classList.add("hidden");
+    eye_icon.style.right = "1rem";
     return true;
   } else {
     password_popup.classList.remove("hidden");
+    eye_icon.style.right = "3.7rem";
     return false;
   }
 };
@@ -92,4 +96,13 @@ const giveError = function (event) {
 form.addEventListener("submit", giveError);
 document.querySelector(".btn-ok").addEventListener("click", function () {
   password_popup.classList.add("hidden");
+});
+
+eye_icon.addEventListener("click", function (e) {
+  e.preventDefault();
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  eye_icon.classList.toggle("fa-eye");
+  eye_icon.classList.toggle("fa-eye-slash");
 });
