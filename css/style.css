@@ -197,8 +197,8 @@ input[type="radio"] {
     .popup-submit {
       animation: none;
       position: absolute;
-      top: 2rem;
-      right: 2rem; } }
+      top: 20rem;
+      right: 4rem; } }
 
 @keyframes greetMessage {
   0% {
