@@ -198,7 +198,7 @@ input[type="radio"] {
       animation: none;
       position: absolute;
       top: 20rem;
-      right: 4rem; } }
+      right: 3rem; } }
 
 @keyframes greetMessage {
   0% {
