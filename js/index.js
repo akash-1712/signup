@@ -7,6 +7,30 @@ const form_inputs = document.querySelectorAll(".form-input");
 const password_popup = document.querySelector(".password-popup");
 const eye_icon = document.querySelector(".eye-icon");
 const password = document.querySelector(".check-pass");
+const popup_submit = document.querySelector(".popup-submit");
+
+const emptyInput = function () {
+  form_inputs.forEach((arr) => {
+    arr.value = "";
+    arr.style.border = "2px solid hsl(246, 25%, 77%)";
+    arr.style.borderBottomWidth = "4px";
+  });
+};
+
+const formSubmit = function () {
+  if (document.querySelector(".error-message") == null) {
+    emptyInput();
+    popup_submit.classList.remove("hidden");
+    screen.width >= 550
+      ? setTimeout(() => {
+          popup_submit.classList.add("hidden");
+        }, 3000)
+      : setInterval(() => {
+          popup_submit.classList.add("hidden");
+        }, 1000);
+  } else {
+  }
+};
 
 const passwordCheck = function (pass) {
   var lowerCaseLetters = /[a-z]/g;
@@ -71,8 +95,6 @@ const giveError = function (event) {
       !val.classList.contains("check-email") &&
       !val.classList.contains("check-pass")
     ) {
-      // val.insertAdjacentHTML("afterend", html);
-      // val.style.border = "2px solid hsl(246, 25%, 77%)";
       addErrorMessage(val, html);
     } else if (val.classList.contains("check-email")) {
       !emailCheck(val.value)
@@ -83,14 +105,10 @@ const giveError = function (event) {
         ? removeErrorMessage(val)
         : addErrorMessage(val, html);
     } else {
-      // val.style.border = "2px solid hsl(248, 32%, 49%)";
-      // val.style.color = " rgba(#000000, 0.4)";
-      // val.closest(".error")?.querySelector(".error-icon")?.remove();
-      // val.closest(".error")?.querySelector(".error-message")?.remove();
-      // val.blur();
       removeErrorMessage(val);
     }
   });
+  formSubmit();
 };
 
 form.addEventListener("submit", giveError);

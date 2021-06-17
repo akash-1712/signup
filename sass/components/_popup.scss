@@ -2,33 +2,35 @@
   display: none;
 }
 
-.popup {
+.popup-submit {
   position: absolute;
   top: 2rem;
-  right: 2rem;
+  right: 20%;
   color: $Red;
   background-color: $Dark-Blue;
   padding: 1.5rem 5rem;
-  //   transition: all 3s;
   animation: greetMessage;
   animation-duration: 3s;
-  transform: translateX(10rem);
 
-  //   &:hover {
-  //     transform: translateX(-20rem);
-  //   }
+  @media only screen and (max-width: 34.375em) {
+    animation: none;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
 }
 
 @keyframes greetMessage {
   0% {
     visibility: hidden;
     opacity: 0;
+    right: 1%;
   }
 
   100% {
     opacity: 1;
-    transform: translateX(-20rem);
     visibility: visible;
+    right: 20%;
   }
 }
 
